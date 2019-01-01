@@ -141,35 +141,6 @@
   
   <entry>
     <title>VirtualBox虚拟机CentOS7安装增强工具</title>
-    <link href="http://shenqisoft.info/2018/10/05/VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BACentOS7%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7.1/"/>
-    <id>http://shenqisoft.info/2018/10/05/VirtualBox虚拟机CentOS7安装增强工具.1/</id>
-    <published>2018-10-05T13:32:38.000Z</published>
-    <updated>2019-01-01T13:00:04.695Z</updated>
-    
-    <content type="html"><![CDATA[<p>vagrant-vbguest<br>自动安装客户端增强插件</p><p>vagrant-winnfsd<br>宿主机通过NFS同步文件夹的插件</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;vagrant-vbguest&lt;br&gt;自动安装客户端增强插件&lt;/p&gt;
-&lt;p&gt;vagrant-winnfsd&lt;br&gt;宿主机通过NFS同步文件夹的插件&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="虚拟机技术" scheme="http://shenqisoft.info/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="VirtualBox" scheme="http://shenqisoft.info/tags/VirtualBox/"/>
-    
-      <category term="CentOS" scheme="http://shenqisoft.info/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VirtualBox虚拟机CentOS7安装增强工具</title>
     <link href="http://shenqisoft.info/2018/10/05/VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BACentOS7%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/"/>
     <id>http://shenqisoft.info/2018/10/05/VirtualBox虚拟机CentOS7安装增强工具/</id>
     <published>2018-10-05T13:32:38.000Z</published>
@@ -186,6 +157,35 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;进入到SHELL模式下，挂载光盘&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutt
+      
+    
+    </summary>
+    
+      <category term="虚拟机技术" scheme="http://shenqisoft.info/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="VirtualBox" scheme="http://shenqisoft.info/tags/VirtualBox/"/>
+    
+      <category term="CentOS" scheme="http://shenqisoft.info/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VirtualBox虚拟机CentOS7安装增强工具</title>
+    <link href="http://shenqisoft.info/2018/10/05/VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BACentOS7%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7.1/"/>
+    <id>http://shenqisoft.info/2018/10/05/VirtualBox虚拟机CentOS7安装增强工具.1/</id>
+    <published>2018-10-05T13:32:38.000Z</published>
+    <updated>2019-01-01T13:00:04.695Z</updated>
+    
+    <content type="html"><![CDATA[<p>vagrant-vbguest<br>自动安装客户端增强插件</p><p>vagrant-winnfsd<br>宿主机通过NFS同步文件夹的插件</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;vagrant-vbguest&lt;br&gt;自动安装客户端增强插件&lt;/p&gt;
+&lt;p&gt;vagrant-winnfsd&lt;br&gt;宿主机通过NFS同步文件夹的插件&lt;/p&gt;
+
       
     
     </summary>
