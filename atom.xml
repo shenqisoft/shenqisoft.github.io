@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>恐龙蛋闯天涯的技术博客</title>
+  
+  <subtitle>Keep It Simple</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://shenqisoft.info/"/>
+  <updated>2019-01-01T12:58:19.711Z</updated>
+  <id>http://shenqisoft.info/</id>
+  
+  <author>
+    <name>恐龙蛋闯天涯</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://shenqisoft.info/2019/01/01/Vagrant%E6%8F%92%E4%BB%B6/"/>
+    <id>http://shenqisoft.info/2019/01/01/Vagrant插件/</id>
+    <published>2019-01-01T12:58:19.711Z</published>
+    <updated>2019-01-01T12:58:19.711Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在Windonws7上使用DockerToolbox</title>
+    <link href="http://shenqisoft.info/2019/01/01/%E5%9C%A8Windonws7%E4%B8%8A%E4%BD%BF%E7%94%A8DockerToolbox/"/>
+    <id>http://shenqisoft.info/2019/01/01/在Windonws7上使用DockerToolbox/</id>
+    <published>2019-01-01T12:47:48.642Z</published>
+    <updated>2019-01-01T12:47:48.643Z</updated>
+    
+    <content type="html"><![CDATA[<p>在 Windows 7 上使用 Docker Toolbox 运行 Docker 本地环境。</p><h2 id="安装-scoop"><a href="#安装-scoop" class="headerlink" title="安装 scoop"></a>安装 scoop</h2><p>本文需要使用 scoop 完成软件的安装，假设你已经安装好 scoop，如果未安装请参考 <a href="https://scoop.sh/" target="_blank" rel="noopener">https://scoop.sh/</a> 自行完成。</p><h3 id="安装-Virtual-Box"><a href="#安装-Virtual-Box" class="headerlink" title="安装 Virtual Box"></a>安装 Virtual Box</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop add bucket nonportable</span><br><span class="line">scoop install virtualbox-np</span><br></pre></td></tr></table></figure><h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install docker</span><br></pre></td></tr></table></figure><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>设置环境变量，把虚拟机保存在E盘上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setx MACHINE_STORAGE_PATH E:\DockerMachine</span><br></pre></td></tr></table></figure></p><p>设置后需要关闭命令行工具重新打开才会生效。</p><p>打开VirtualBox，在菜单【管理-&gt;全局设定-&gt;常规】中配置VirtualBox虚拟机存放位置</p><h3 id="创建名称为-default-的虚拟机"><a href="#创建名称为-default-的虚拟机" class="headerlink" title="创建名称为 default 的虚拟机"></a>创建名称为 default 的虚拟机</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine create --engine-registry-mirror=Docker加速器地址 -d virtualbox default</span><br></pre></td></tr></table></figure><p>关于Docker加速器地址，可以使用阿里云的自行解决。</p><p>查看虚拟机信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-machine env default</span><br></pre></td></tr></table></figure></p><p>根据提示运用命令，具体视你的 docker-machine env default 命令的信息，可能有差异。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@FOR /f &quot;tokens=*&quot; %i IN (&apos;&quot;C:\Users\Administrator\scoop\apps\docker\current\docker-machine.exe&quot; env default&apos;) DO @%i</span><br></pre></td></tr></table></figure></p><h3 id="使用-Docker"><a href="#使用-Docker" class="headerlink" title="使用 Docker"></a>使用 Docker</h3><p>完成以上步骤后，就可以使用 Docker 命令来管理容器了。</p><p>比如我们拉取一个Reids镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull redis:3.2</span><br></pre></td></tr></table></figure></p><p>运行redis镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name redis -p 6379:6379 -v /data/redis:/data -d redis:3.2 redis-server --appendonly yes</span><br></pre></td></tr></table></figure></p><p>注意：这里的 -v /data/redis:/data，需要你打开 Virtual Box，在 default 虚拟机上做/data目录映射到你的宿主机上。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在 Windows 7 上使用 Docker Toolbox 运行 Docker 本地环境。&lt;/p&gt;
+&lt;h2 id=&quot;安装-scoop&quot;&gt;&lt;a href=&quot;#安装-scoop&quot; class=&quot;headerlink&quot; title=&quot;安装 scoop&quot;&gt;&lt;/a&gt;安装 scoop
+      
+    
+    </summary>
+    
+      <category term="容器技术" scheme="http://shenqisoft.info/categories/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Docker" scheme="http://shenqisoft.info/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用gradle创建和运行基本的java项目</title>
+    <link href="http://shenqisoft.info/2018/10/06/%E4%BD%BF%E7%94%A8gradle%E5%88%9B%E5%BB%BA%E5%92%8C%E8%BF%90%E8%A1%8C%E5%9F%BA%E6%9C%AC%E7%9A%84java%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://shenqisoft.info/2018/10/06/使用gradle创建和运行基本的java项目/</id>
+    <published>2018-10-06T13:59:23.000Z</published>
+    <updated>2019-01-01T12:47:48.640Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><ul><li>jdk1.8</li><li>gradle4.10.2</li><li>windows7</li></ul><h1 id="创建Java项目"><a href="#创建Java项目" class="headerlink" title="创建Java项目"></a>创建Java项目</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle init --type java-application</span><br></pre></td></tr></table></figure><p>这样就建好了一个基本的Java项目。</p><p>如果对 gradle init 不熟悉可以用下面命令查看帮助：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle help --task init</span><br></pre></td></tr></table></figure></p><h1 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle run</span><br></pre></td></tr></table></figure><h1 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle test</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;开发环境&quot;&gt;&lt;a href=&quot;#开发环境&quot; class=&quot;headerlink&quot; title=&quot;开发环境&quot;&gt;&lt;/a&gt;开发环境&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;jdk1.8&lt;/li&gt;
+&lt;li&gt;gradle4.10.2&lt;/li&gt;
+&lt;li&gt;windows7&lt;/li&gt;
+&lt;/ul
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://shenqisoft.info/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://shenqisoft.info/tags/Java/"/>
+    
+      <category term="Gradle" scheme="http://shenqisoft.info/tags/Gradle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>收集的远程工作相关资源聚合</title>
+    <link href="http://shenqisoft.info/2018/10/06/%E6%94%B6%E9%9B%86%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90%E8%81%9A%E5%90%88/"/>
+    <id>http://shenqisoft.info/2018/10/06/收集的远程工作相关资源聚合/</id>
+    <published>2018-10-06T12:52:28.000Z</published>
+    <updated>2019-01-01T12:47:48.652Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="国内远程工作类网站"><a href="#国内远程工作类网站" class="headerlink" title="国内远程工作类网站"></a>国内远程工作类网站</h1><ul><li>一早一晚：<a href="https://yizaoyiwan.com/" target="_blank" rel="noopener">https://yizaoyiwan.com/</a></li><li>V2EX：<a href="https://www.v2ex.com/" target="_blank" rel="noopener">https://www.v2ex.com/</a></li><li>远程.work：<a href="https://yuancheng.work/" target="_blank" rel="noopener">https://yuancheng.work/</a></li></ul><h1 id="国外远程工作类网站"><a href="#国外远程工作类网站" class="headerlink" title="国外远程工作类网站"></a>国外远程工作类网站</h1><ul><li>Cross Over：<a href="https://www.crossover.com/" target="_blank" rel="noopener">https://www.crossover.com/</a></li><li>Remote OK：<a href="https://remoteok.io/" target="_blank" rel="noopener">https://remoteok.io/</a></li><li>We Work Remotely：<a href="https://weworkremotely.com/" target="_blank" rel="noopener">https://weworkremotely.com/</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;国内远程工作类网站&quot;&gt;&lt;a href=&quot;#国内远程工作类网站&quot; class=&quot;headerlink&quot; title=&quot;国内远程工作类网站&quot;&gt;&lt;/a&gt;国内远程工作类网站&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;一早一晚：&lt;a href=&quot;https://yizaoyiwan.com
+      
+    
+    </summary>
+    
+      <category term="远程工作" scheme="http://shenqisoft.info/categories/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="远程工作" scheme="http://shenqisoft.info/tags/%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>收集的React开发相关资源聚合</title>
+    <link href="http://shenqisoft.info/2018/10/06/%E6%94%B6%E9%9B%86%E7%9A%84React%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90%E8%81%9A%E5%90%88/"/>
+    <id>http://shenqisoft.info/2018/10/06/收集的React开发相关资源聚合/</id>
+    <published>2018-10-06T12:37:28.000Z</published>
+    <updated>2019-01-01T12:47:48.648Z</updated>
+    
+    <content type="html"><![CDATA[<p>平时收集的React开发相关资源，开发的时候可能会用到，记录在这里备忘，保持持续更新。</p><h1 id="react-html5video"><a href="#react-html5video" class="headerlink" title="react-html5video"></a>react-html5video</h1><p>可自定义的 HTML5 视频 React 组件，代码库：<a href="https://github.com/mderrick/react-html5video" target="_blank" rel="noopener">https://github.com/mderrick/react-html5video</a>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;平时收集的React开发相关资源，开发的时候可能会用到，记录在这里备忘，保持持续更新。&lt;/p&gt;
+&lt;h1 id=&quot;react-html5video&quot;&gt;&lt;a href=&quot;#react-html5video&quot; class=&quot;headerlink&quot; title=&quot;react-htm
+      
+    
+    </summary>
+    
+      <category term="开发资源" scheme="http://shenqisoft.info/categories/%E5%BC%80%E5%8F%91%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="React" scheme="http://shenqisoft.info/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VirtualBox虚拟机CentOS7安装增强工具</title>
+    <link href="http://shenqisoft.info/2018/10/05/VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BACentOS7%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7.1/"/>
+    <id>http://shenqisoft.info/2018/10/05/VirtualBox虚拟机CentOS7安装增强工具.1/</id>
+    <published>2018-10-05T13:32:38.000Z</published>
+    <updated>2019-01-01T13:00:04.695Z</updated>
+    
+    <content type="html"><![CDATA[<p>vagrant-vbguest<br>自动安装客户端增强插件</p><p>vagrant-winnfsd<br>宿主机通过NFS同步文件夹的插件</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;vagrant-vbguest&lt;br&gt;自动安装客户端增强插件&lt;/p&gt;
+&lt;p&gt;vagrant-winnfsd&lt;br&gt;宿主机通过NFS同步文件夹的插件&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="虚拟机技术" scheme="http://shenqisoft.info/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="VirtualBox" scheme="http://shenqisoft.info/tags/VirtualBox/"/>
+    
+      <category term="CentOS" scheme="http://shenqisoft.info/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VirtualBox虚拟机CentOS7安装增强工具</title>
+    <link href="http://shenqisoft.info/2018/10/05/VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BACentOS7%E5%AE%89%E8%A3%85%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/"/>
+    <id>http://shenqisoft.info/2018/10/05/VirtualBox虚拟机CentOS7安装增强工具/</id>
+    <published>2018-10-05T13:32:38.000Z</published>
+    <updated>2019-01-01T12:47:48.636Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>选择VirtualBox的“设备”-&gt;“安装增强工具…”</p></li><li><p>进入到SHELL模式下，挂载光盘</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#sudo mount /dev/cdrom /media</span><br></pre></td></tr></table></figure></li><li><p>​安装必要的工具</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#sudo yum install perl gcc* make kernel kernel-devel -y</span><br></pre></td></tr></table></figure></li><li><p>进行安装</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#cd /media/</span><br><span class="line">#sudo sh VBoxLinuxAdditions.run</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择VirtualBox的“设备”-&amp;gt;“安装增强工具…”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;进入到SHELL模式下，挂载光盘&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutt
+      
+    
+    </summary>
+    
+      <category term="虚拟机技术" scheme="http://shenqisoft.info/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="VirtualBox" scheme="http://shenqisoft.info/tags/VirtualBox/"/>
+    
+      <category term="CentOS" scheme="http://shenqisoft.info/tags/CentOS/"/>
+    
+  </entry>
+  
+</feed>
